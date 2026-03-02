@@ -1,0 +1,68 @@
+import { Meta } from "@storybook/blocks";
+
+<Meta title="Introduction" />
+
+# Simple Design System
+
+The shared component library and design token foundation for all **That Simple** products.
+
+## Getting Started
+
+Install the package:
+
+```bash
+npm install @thatsimple/design-system
+```
+
+Add the Tailwind preset to your `tailwind.config.ts`:
+
+```ts
+import { simplePreset } from "@thatsimple/design-system/tailwind-preset";
+
+export default {
+  presets: [simplePreset],
+  content: [
+    "./src/**/*.{ts,tsx}",
+    "node_modules/@thatsimple/design-system/dist/**/*.js",
+  ],
+};
+```
+
+Import the global styles in your entry point:
+
+```ts
+import "@thatsimple/design-system/styles/globals.css";
+```
+
+Use components:
+
+```tsx
+import { Button, Badge, Card } from "@thatsimple/design-system";
+```
+
+## Design Tokens
+
+The design system uses CSS custom properties (HSL values) as the token layer. The primary brand color is **Amber/Gold** (`hsl(40, 95%, 58%)`), with a warm off-white background.
+
+### Core Palette
+
+| Token | HSL | Usage |
+|-------|-----|-------|
+| `--background` | 40 2% 98% | Page background |
+| `--foreground` | 40 2% 10% | Body text |
+| `--primary` | 40 95% 58% | Buttons, links, brand accent |
+| `--secondary` | 40 2% 99% | Secondary buttons |
+| `--muted` | 40 12% 93% | Disabled, subtle backgrounds |
+| `--border` | 40 4% 88% | Borders, dividers |
+| `--card` | 0 0% 100% | Cards, dialogs |
+
+### Status Colors
+
+| Token | HSL | Usage |
+|-------|-----|-------|
+| `--success` | 67 72% 44% | Success states |
+| `--warning` | 34 95% 44% | Warning states |
+| `--destructive` | 355 86% 55% | Error / danger |
+| `--info` | 189 80% 44% | Information |
+
+Browse the component stories in the sidebar to see each component in action.
