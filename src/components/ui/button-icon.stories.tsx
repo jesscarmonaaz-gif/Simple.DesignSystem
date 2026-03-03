@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ChevronRight, Plus, Pencil, Trash2, Settings } from "lucide-react";
+import { CaretRight, Plus, PencilSimple, Trash, GearSix } from "@phosphor-icons/react";
 import { Button } from "./button";
 
 const meta: Meta<typeof Button> = {
@@ -43,27 +43,27 @@ export const Large: Story = {
 };
 
 export const Outline: Story = {
-  args: { variant: "outline", size: "icon", children: <Pencil /> },
+  args: { variant: "outline", size: "icon", children: <PencilSimple /> },
 };
 
 export const OutlineSmall: Story = {
-  args: { variant: "outline", size: "icon-sm", children: <Pencil /> },
+  args: { variant: "outline", size: "icon-sm", children: <PencilSimple /> },
 };
 
 export const OutlineLarge: Story = {
-  args: { variant: "outline", size: "icon-lg", children: <Pencil /> },
+  args: { variant: "outline", size: "icon-lg", children: <PencilSimple /> },
 };
 
 export const Secondary: Story = {
-  args: { variant: "secondary", size: "icon", children: <Settings /> },
+  args: { variant: "secondary", size: "icon", children: <GearSix /> },
 };
 
 export const Destructive: Story = {
-  args: { variant: "destructive", size: "icon", children: <Trash2 /> },
+  args: { variant: "destructive", size: "icon", children: <Trash /> },
 };
 
 export const Ghost: Story = {
-  args: { variant: "ghost", size: "icon", children: <ChevronRight /> },
+  args: { variant: "ghost", size: "icon", children: <CaretRight /> },
 };
 
 export const AllSizes: Story = {
@@ -82,36 +82,36 @@ export const AllSizes: Story = {
       <div className="flex flex-col gap-2">
         <span className="text-xs font-medium text-muted-foreground">Outline</span>
         <div className="flex items-center gap-4">
-          <Button variant="outline" size="icon-sm"><Pencil /></Button>
-          <Button variant="outline" size="icon"><Pencil /></Button>
-          <Button variant="outline" size="icon-lg"><Pencil /></Button>
+          <Button variant="outline" size="icon-sm"><PencilSimple /></Button>
+          <Button variant="outline" size="icon"><PencilSimple /></Button>
+          <Button variant="outline" size="icon-lg"><PencilSimple /></Button>
         </div>
       </div>
       {/* Secondary */}
       <div className="flex flex-col gap-2">
         <span className="text-xs font-medium text-muted-foreground">Secondary</span>
         <div className="flex items-center gap-4">
-          <Button variant="secondary" size="icon-sm"><Settings /></Button>
-          <Button variant="secondary" size="icon"><Settings /></Button>
-          <Button variant="secondary" size="icon-lg"><Settings /></Button>
+          <Button variant="secondary" size="icon-sm"><GearSix /></Button>
+          <Button variant="secondary" size="icon"><GearSix /></Button>
+          <Button variant="secondary" size="icon-lg"><GearSix /></Button>
         </div>
       </div>
       {/* Destructive */}
       <div className="flex flex-col gap-2">
         <span className="text-xs font-medium text-muted-foreground">Destructive</span>
         <div className="flex items-center gap-4">
-          <Button variant="destructive" size="icon-sm"><Trash2 /></Button>
-          <Button variant="destructive" size="icon"><Trash2 /></Button>
-          <Button variant="destructive" size="icon-lg"><Trash2 /></Button>
+          <Button variant="destructive" size="icon-sm"><Trash /></Button>
+          <Button variant="destructive" size="icon"><Trash /></Button>
+          <Button variant="destructive" size="icon-lg"><Trash /></Button>
         </div>
       </div>
       {/* Ghost */}
       <div className="flex flex-col gap-2">
         <span className="text-xs font-medium text-muted-foreground">Ghost</span>
         <div className="flex items-center gap-4">
-          <Button variant="ghost" size="icon-sm"><ChevronRight /></Button>
-          <Button variant="ghost" size="icon"><ChevronRight /></Button>
-          <Button variant="ghost" size="icon-lg"><ChevronRight /></Button>
+          <Button variant="ghost" size="icon-sm"><CaretRight /></Button>
+          <Button variant="ghost" size="icon"><CaretRight /></Button>
+          <Button variant="ghost" size="icon-lg"><CaretRight /></Button>
         </div>
       </div>
     </div>

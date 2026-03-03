@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Mail, Loader2 } from "lucide-react";
+import { EnvelopeSimple, CircleNotch } from "@phosphor-icons/react";
 import { Button } from "./button";
 
 const meta: Meta<typeof Button> = {
@@ -67,7 +67,7 @@ export const WithIcon: Story = {
   args: {
     children: (
       <>
-        <Mail /> Login with Email
+        <EnvelopeSimple /> Login with Email
       </>
     ),
   },
@@ -78,7 +78,7 @@ export const Loading: Story = {
     disabled: true,
     children: (
       <>
-        <Loader2 className="animate-spin" /> Please wait
+        <CircleNotch className="animate-spin" /> Please wait
       </>
     ),
   },

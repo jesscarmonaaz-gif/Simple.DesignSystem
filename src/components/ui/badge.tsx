@@ -71,7 +71,7 @@ const badgeVariants = cva(
         variant: "default",
         filled: true,
         className:
-          "border-primary bg-primary text-primary-foreground",
+          "border-primary bg-primary text-white",
       },
       {
         variant: "success",

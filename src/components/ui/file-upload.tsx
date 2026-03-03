@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Upload, CloudUpload } from "lucide-react";
+import { UploadSimple, CloudArrowUp } from "@phosphor-icons/react";
 import { Label } from "./label";
 import { cn } from "@/lib/utils";
 
@@ -138,7 +138,7 @@ const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
             }}
             aria-label="Upload a file"
           >
-            <Upload className="h-6 w-6 text-primary" />
+            <UploadSimple className="h-6 w-6 text-primary" />
             <div className="text-sm">
               {fileName ? (
                 <span className="font-medium text-foreground">{fileName}</span>
@@ -174,7 +174,7 @@ const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
               className,
             )}
           >
-            <CloudUpload className="h-10 w-10 text-primary" />
+            <CloudArrowUp className="h-10 w-10 text-primary" />
 
             {fileName ? (
               <span className="text-sm font-medium text-foreground">
@@ -205,7 +205,7 @@ const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
                 "disabled:cursor-not-allowed disabled:opacity-50",
               )}
             >
-              <Upload className="h-4 w-4" />
+              <UploadSimple className="h-4 w-4" />
               Browse Files
             </button>
           </div>

@@ -13,7 +13,7 @@ const frameworkOptions = [
 ];
 
 const meta: Meta<typeof Select> = {
-  title: "Primitives/Select",
+  title: "Primitives/Input/Select",
   component: Select,
   argTypes: {
     state: {

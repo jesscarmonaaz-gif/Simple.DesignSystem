@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Label } from "./label";
 
 const meta: Meta<typeof Label> = {
-  title: "Primitives/Label",
+  title: "Primitives/Display/Label",
   component: Label,
   args: {
     children: "Email address",

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { ChevronDown, Search } from "lucide-react";
+import { CaretDown, MagnifyingGlass } from "@phosphor-icons/react";
 import { Label } from "./label";
 import { cn } from "@/lib/utils";
 
@@ -223,7 +223,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             <span className="text-foreground font-medium">
               {selectedCountry.dial}
             </span>
-            <ChevronDown
+            <CaretDown
               className={cn(
                 "h-3.5 w-3.5 text-muted-foreground transition-transform",
                 open && "rotate-180",
@@ -257,7 +257,7 @@ const PhoneInput = React.forwardRef<HTMLInputElement, PhoneInputProps>(
             <div className="absolute left-0 top-full z-50 mt-1 w-72 rounded-md border border-border bg-white shadow-lg animate-in fade-in-0 zoom-in-95">
               {/* Search */}
               <div className="flex items-center gap-2 border-b border-border px-3 py-2">
-                <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
+                <MagnifyingGlass className="h-4 w-4 shrink-0 text-muted-foreground" />
                 <input
                   ref={searchRef}
                   type="text"

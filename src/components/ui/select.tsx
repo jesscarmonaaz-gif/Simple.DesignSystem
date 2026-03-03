@@ -1,5 +1,6 @@
 import * as React from "react";
-import { ChevronDown, Search, X, Check } from "lucide-react";
+import { CaretDown, MagnifyingGlass, X, Check } from "@phosphor-icons/react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
 import { Label } from "./label";
 import { cn } from "@/lib/utils";
 
@@ -312,7 +313,7 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
                   <X className="h-4 w-4" />
                 </span>
               )}
-              <ChevronDown
+              <CaretDown
                 className={cn(
                   "h-4 w-4 text-muted-foreground transition-transform",
                   open && "rotate-180",
@@ -327,7 +328,7 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
               {/* Search input */}
               {searchable && (
                 <div className="flex items-center gap-2 border-b border-border px-3 py-2">
-                  <Search className="h-4 w-4 shrink-0 text-muted-foreground" />
+                  <MagnifyingGlass className="h-4 w-4 shrink-0 text-muted-foreground" />
                   <input
                     ref={searchRef}
                     type="text"
@@ -376,9 +377,35 @@ const Select = React.forwardRef<HTMLButtonElement, SelectProps>(
                           "cursor-not-allowed opacity-50",
                       )}
                     >
-                      <span className="flex h-4 w-4 shrink-0 items-center justify-center">
-                        {isSelected && <Check className="h-4 w-4" />}
-                      </span>
+                      {/* Checkbox indicator (multi) or Radio indicator (single) */}
+                      {multiple ? (
+                        <CheckboxPrimitive.Root
+                          checked={isSelected}
+                          tabIndex={-1}
+                          aria-hidden
+                          className={cn(
+                            "pointer-events-none h-4 w-4 shrink-0 rounded border transition-colors",
+                            isSelected
+                              ? "border-success bg-success"
+                              : "border-border bg-white",
+                          )}
+                        >
+                          <CheckboxPrimitive.Indicator className="flex items-center justify-center">
+                            <Check className="h-3 w-3 text-white" />
+                          </CheckboxPrimitive.Indicator>
+                        </CheckboxPrimitive.Root>
+                      ) : (
+                        <div
+                          className={cn(
+                            "flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2 transition-colors",
+                            isSelected ? "border-success" : "border-border",
+                          )}
+                        >
+                          {isSelected && (
+                            <div className="h-2 w-2 rounded-full bg-success" />
+                          )}
+                        </div>
+                      )}
                       <span className="flex-1 text-left">
                         {option.label}
                       </span>

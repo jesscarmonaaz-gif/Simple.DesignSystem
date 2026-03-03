@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeSlash } from "@phosphor-icons/react";
 import { Label } from "./label";
 
 import { cn } from "@/lib/utils";
@@ -58,7 +58,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
               aria-label={showPassword ? "Hide password" : "Show password"}
             >
               {showPassword ? (
-                <EyeOff className="h-4 w-4" />
+                <EyeSlash className="h-4 w-4" />
               ) : (
                 <Eye className="h-4 w-4" />
               )}

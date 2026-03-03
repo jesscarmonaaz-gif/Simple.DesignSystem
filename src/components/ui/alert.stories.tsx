@@ -7,7 +7,7 @@ const defaultActions = [
 ];
 
 const meta: Meta<typeof Alert> = {
-  title: "Primitives/Alert",
+  title: "Primitives/Display/Alert",
   component: Alert,
   argTypes: {
     variant: {

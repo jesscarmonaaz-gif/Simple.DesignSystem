@@ -7,7 +7,7 @@ const meta: Meta<typeof Input> = {
   argTypes: {
     type: {
       control: "select",
-      options: ["text", "email", "password", "number", "search", "tel", "url"],
+      options: ["text", "number", "search", "tel", "url"],
     },
     state: {
       control: "select",
@@ -49,94 +49,6 @@ export const WithLabelAndHelper: Story = {
     label: "Label",
     placeholder: "Placeholder",
     helperText: "Helper text",
-  },
-};
-
-export const Email: Story = {
-  args: {
-    type: "email",
-    label: "Email",
-    placeholder: "name@example.com",
-    helperText: "We'll never share your email.",
-  },
-};
-
-export const EmailError: Story = {
-  args: {
-    type: "email",
-    label: "Email",
-    placeholder: "name@example.com",
-    defaultValue: "invalid-email",
-    state: "error",
-    helperText: "Please enter a valid email address.",
-  },
-};
-
-export const EmailSuccess: Story = {
-  args: {
-    type: "email",
-    label: "Email",
-    placeholder: "name@example.com",
-    defaultValue: "john@example.com",
-    state: "success",
-    helperText: "Email is available.",
-  },
-};
-
-export const Password: Story = {
-  args: {
-    type: "password",
-    label: "Password",
-    placeholder: "Enter password",
-    helperText: "Must be at least 8 characters.",
-  },
-};
-
-export const PasswordError: Story = {
-  args: {
-    type: "password",
-    label: "Password",
-    placeholder: "Enter password",
-    defaultValue: "123",
-    state: "error",
-    helperText: "Password must be at least 8 characters.",
-  },
-};
-
-export const PasswordSuccess: Story = {
-  args: {
-    type: "password",
-    label: "Password",
-    placeholder: "Enter password",
-    defaultValue: "mySecurePassword123",
-    state: "success",
-    helperText: "Strong password.",
-  },
-};
-
-export const File: Story = {
-  args: {
-    type: "file",
-    label: "Upload file",
-    helperText: "PNG, JPG up to 10MB.",
-  },
-};
-
-export const FileError: Story = {
-  args: {
-    type: "file",
-    label: "Upload file",
-    state: "error",
-    helperText: "File exceeds the 10MB limit.",
-  },
-};
-
-export const FileSuccess: Story = {
-  args: {
-    type: "file",
-    label: "Upload file",
-    state: "success",
-    helperText: "File uploaded successfully.",
   },
 };
 
@@ -193,52 +105,6 @@ export const AllStates: Story = {
         state="error"
         helperText="This field is required."
         required
-      />
-      <Input
-        type="email"
-        label="Email — Default"
-        placeholder="name@example.com"
-        helperText="We'll never share your email."
-      />
-      <Input
-        type="email"
-        label="Email — Error"
-        defaultValue="invalid-email"
-        state="error"
-        helperText="Please enter a valid email address."
-      />
-      <Input
-        type="email"
-        label="Email — Success"
-        defaultValue="john@example.com"
-        state="success"
-        helperText="Email is available."
-      />
-      <Input
-        type="password"
-        label="Password — Error"
-        defaultValue="123"
-        state="error"
-        helperText="Password must be at least 8 characters."
-      />
-      <Input
-        type="password"
-        label="Password — Success"
-        defaultValue="mySecurePassword123"
-        state="success"
-        helperText="Strong password."
-      />
-      <Input
-        type="file"
-        label="File — Error"
-        state="error"
-        helperText="File exceeds the 10MB limit."
-      />
-      <Input
-        type="file"
-        label="File — Success"
-        state="success"
-        helperText="File uploaded successfully."
       />
     </div>
   ),

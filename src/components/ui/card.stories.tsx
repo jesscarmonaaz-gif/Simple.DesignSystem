@@ -12,7 +12,7 @@ import { Input } from "./input";
 import { Label } from "./label";
 
 const meta: Meta<typeof Card> = {
-  title: "Primitives/Card",
+  title: "Primitives/Display/Card",
   component: Card,
 };
 
