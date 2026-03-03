@@ -16,8 +16,6 @@ export interface SidebarItem {
   active?: boolean;
   /** Prevents interaction */
   disabled?: boolean;
-  /** Optional badge label (e.g. notification count) */
-  badge?: string | number;
 }
 
 export interface SidebarGroup {
@@ -102,18 +100,6 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
                   )}
                   {!collapsed && (
                     <span className="flex-1 truncate">{item.label}</span>
-                  )}
-                  {!collapsed && item.badge !== undefined && (
-                    <span
-                      className={cn(
-                        "ml-auto text-xs rounded-full px-1.5 py-0.5 font-medium tabular-nums",
-                        item.active
-                          ? "bg-primary/20 text-primary"
-                          : "bg-muted text-muted-foreground",
-                      )}
-                    >
-                      {item.badge}
-                    </span>
                   )}
                 </>
               );
