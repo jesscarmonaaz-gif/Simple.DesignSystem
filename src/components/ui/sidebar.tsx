@@ -55,7 +55,7 @@ const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       {header && (
         <div
           className={cn(
-            "flex items-center border-b border-border px-4 py-3 shrink-0",
+            "flex items-center px-4 py-3 shrink-0",
             collapsed && "justify-center px-0",
           )}
         >
