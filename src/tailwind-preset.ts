@@ -6,14 +6,24 @@ export const simplePreset: Partial<Config> = {
   theme: {
     extend: {
       colors: {
-        border: "hsl(var(--border))",
+        border: {
+          DEFAULT: "hsl(var(--border))",
+          accent: "hsl(var(--border-accent))",
+        },
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+          body: "hsl(var(--foreground-body))",
+        },
+        surface: "hsl(var(--surface))",
+        highlight: "hsl(var(--highlight))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          hover: "hsl(var(--primary-hover))",
+          light: "hsl(var(--primary-light))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -30,6 +40,10 @@ export const simplePreset: Partial<Config> = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          blue: {
+            DEFAULT: "hsl(var(--accent-blue))",
+            dark: "hsl(var(--accent-blue-dark))",
+          },
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

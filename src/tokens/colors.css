@@ -1,26 +1,44 @@
 @layer base {
   :root {
-    /* Core */
-    --background: 40 2% 98%;
-    --foreground: 40 2% 10%;
-    --muted: 40 12% 93%;
-    --muted-foreground: 40 12% 78%;
-    --primary: 40 95% 58%;
-    --primary-foreground: 40 2% 10%;
-    --secondary: 40 6% 91%;
-    --secondary-foreground: 40 2% 10%;
-    --border: 40 4% 88%;
+    /* Core Surfaces */
+    --background: 18 100% 98%;
+    --foreground: 28 15% 19%;
+    --surface: 25 60% 93%;
+    --highlight: 24 33% 85%;
     --card: 0 0% 100%;
-    --card-foreground: 40 2% 10%;
-    --input: 40 4% 88%;
-    --ring: 40 95% 58%;
-    --radius: 0.5rem;
-
-    /* Accent & Popover */
-    --accent: 40 12% 93%;
-    --accent-foreground: 40 2% 10%;
+    --card-foreground: 28 15% 19%;
     --popover: 0 0% 100%;
-    --popover-foreground: 40 2% 10%;
+    --popover-foreground: 28 15% 19%;
+
+    /* Primary (Teal) */
+    --primary: 181 61% 26%;
+    --primary-foreground: 178 100% 94%;
+    --primary-hover: 180 20% 45%;
+    --primary-light: 178 100% 94%;
+
+    /* Secondary & Muted */
+    --secondary: 25 60% 93%;
+    --secondary-foreground: 27 10% 37%;
+    --muted: 25 60% 93%;
+    --muted-foreground: 27 8% 48%;
+
+    /* Text */
+    --foreground-body: 27 10% 37%;
+
+    /* Accent */
+    --accent: 24 33% 85%;
+    --accent-foreground: 28 15% 19%;
+
+    /* Accent Blue */
+    --accent-blue: 202 37% 36%;
+    --accent-blue-dark: 201 43% 31%;
+
+    /* Borders */
+    --border: 25 60% 93%;
+    --border-accent: 180 69% 80%;
+    --input: 25 60% 93%;
+    --ring: 181 61% 26%;
+    --radius: 0.5rem;
 
     /* Destructive */
     --destructive: 15 89% 53%;
@@ -31,53 +49,76 @@
     --success-foreground: 0 0% 100%;
     --warning: 34 96% 48%;
     --warning-foreground: 0 0% 100%;
-    --info: 192 52% 55%;
+    --info: 202 37% 36%;
     --info-foreground: 0 0% 100%;
     --cancelled: 15 89% 53%;
     --cancelled-foreground: 0 0% 100%;
 
     /* Chart */
-    --chart-1: 40 95% 58%;
-    --chart-2: 192 52% 55%;
+    --chart-1: 181 61% 26%;
+    --chart-2: 202 37% 36%;
     --chart-3: 67 72% 44%;
     --chart-4: 34 96% 48%;
     --chart-5: 15 89% 53%;
   }
 
   .dark {
-    --background: 40 2% 6%;
-    --foreground: 40 2% 98%;
-    --muted: 40 4% 15%;
-    --muted-foreground: 40 4% 55%;
-    --primary: 40 95% 58%;
-    --primary-foreground: 40 2% 10%;
-    --secondary: 40 4% 12%;
-    --secondary-foreground: 40 2% 98%;
-    --border: 40 4% 18%;
-    --card: 40 2% 8%;
-    --card-foreground: 40 2% 98%;
-    --input: 40 4% 18%;
-    --ring: 40 95% 58%;
+    /* Core Surfaces */
+    --background: 28 15% 6%;
+    --foreground: 18 100% 98%;
+    --surface: 25 15% 12%;
+    --highlight: 24 10% 18%;
+    --card: 28 10% 8%;
+    --card-foreground: 18 100% 98%;
+    --popover: 28 10% 8%;
+    --popover-foreground: 18 100% 98%;
 
-    --accent: 40 4% 15%;
-    --accent-foreground: 40 2% 98%;
-    --popover: 40 2% 8%;
-    --popover-foreground: 40 2% 98%;
+    /* Primary (Teal) */
+    --primary: 181 61% 36%;
+    --primary-foreground: 178 100% 94%;
+    --primary-hover: 180 30% 50%;
+    --primary-light: 178 40% 15%;
 
+    /* Secondary & Muted */
+    --secondary: 25 10% 12%;
+    --secondary-foreground: 25 60% 93%;
+    --muted: 25 10% 15%;
+    --muted-foreground: 27 8% 55%;
+
+    /* Text */
+    --foreground-body: 27 10% 70%;
+
+    /* Accent */
+    --accent: 24 10% 15%;
+    --accent-foreground: 18 100% 98%;
+
+    /* Accent Blue */
+    --accent-blue: 202 37% 50%;
+    --accent-blue-dark: 201 43% 40%;
+
+    /* Borders */
+    --border: 25 10% 18%;
+    --border-accent: 180 40% 30%;
+    --input: 25 10% 18%;
+    --ring: 181 61% 36%;
+
+    /* Destructive */
     --destructive: 15 89% 53%;
     --destructive-foreground: 0 0% 100%;
 
+    /* Semantic / Status */
     --success: 67 72% 44%;
     --success-foreground: 0 0% 100%;
     --warning: 34 96% 48%;
     --warning-foreground: 0 0% 100%;
-    --info: 192 52% 55%;
+    --info: 202 37% 50%;
     --info-foreground: 0 0% 100%;
     --cancelled: 15 89% 53%;
     --cancelled-foreground: 0 0% 100%;
 
-    --chart-1: 40 95% 58%;
-    --chart-2: 192 52% 55%;
+    /* Chart */
+    --chart-1: 181 61% 36%;
+    --chart-2: 202 37% 50%;
     --chart-3: 67 72% 44%;
     --chart-4: 34 96% 48%;
     --chart-5: 15 89% 53%;
