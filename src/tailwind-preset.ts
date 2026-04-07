@@ -43,6 +43,8 @@ export const simplePreset: Partial<Config> = {
           blue: {
             DEFAULT: "hsl(var(--accent-blue))",
             dark: "hsl(var(--accent-blue-dark))",
+            light: "hsl(var(--accent-blue-light))",
+            foreground: "hsl(var(--accent-blue-foreground))",
           },
         },
         popover: {
@@ -68,6 +70,35 @@ export const simplePreset: Partial<Config> = {
         cancelled: {
           DEFAULT: "hsl(var(--cancelled))",
           foreground: "hsl(var(--cancelled-foreground))",
+        },
+        "status-ativo": {
+          DEFAULT: "hsl(var(--status-ativo))",
+          bg: "hsl(var(--status-ativo-bg))",
+          foreground: "hsl(var(--status-ativo-foreground))",
+        },
+        "status-inativo": {
+          DEFAULT: "hsl(var(--status-inativo))",
+          bg: "hsl(var(--status-inativo-bg))",
+          foreground: "hsl(var(--status-inativo-foreground))",
+        },
+        "status-prospecto": {
+          DEFAULT: "hsl(var(--status-prospecto))",
+          bg: "hsl(var(--status-prospecto-bg))",
+          foreground: "hsl(var(--status-prospecto-foreground))",
+        },
+        sidebar: {
+          DEFAULT: "hsl(var(--sidebar-background))",
+          foreground: "hsl(var(--sidebar-foreground))",
+          primary: {
+            DEFAULT: "hsl(var(--sidebar-primary))",
+            foreground: "hsl(var(--sidebar-primary-foreground))",
+          },
+          accent: {
+            DEFAULT: "hsl(var(--sidebar-accent))",
+            foreground: "hsl(var(--sidebar-accent-foreground))",
+          },
+          border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
         },
         chart: {
           "1": "hsl(var(--chart-1))",

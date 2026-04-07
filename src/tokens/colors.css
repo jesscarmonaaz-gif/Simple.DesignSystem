@@ -32,6 +32,8 @@
     /* Accent Blue */
     --accent-blue: 202 37% 36%;
     --accent-blue-dark: 201 43% 31%;
+    --accent-blue-light: 203 96% 85%;
+    --accent-blue-foreground: 0 0% 100%;
 
     /* Borders */
     --border: 25 60% 93%;
@@ -53,6 +55,27 @@
     --info-foreground: 0 0% 100%;
     --cancelled: 15 89% 53%;
     --cancelled-foreground: 0 0% 100%;
+
+    /* Client Status (from simplecare.pen) */
+    --status-ativo: 169 52% 36%;
+    --status-ativo-bg: 156 38% 93%;
+    --status-ativo-foreground: 0 0% 100%;
+    --status-inativo: 218 11% 65%;
+    --status-inativo-bg: 220 14% 96%;
+    --status-inativo-foreground: 0 0% 100%;
+    --status-prospecto: 160 21% 45%;
+    --status-prospecto-bg: 150 31% 94%;
+    --status-prospecto-foreground: 0 0% 100%;
+
+    /* Sidebar — matches main background for seamless layout */
+    --sidebar-background: 18 100% 98%;
+    --sidebar-foreground: 27 8% 48%;
+    --sidebar-primary: 181 61% 26%;
+    --sidebar-primary-foreground: 178 100% 94%;
+    --sidebar-accent: 0 0% 100%;
+    --sidebar-accent-foreground: 181 61% 26%;
+    --sidebar-border: 25 60% 93%;
+    --sidebar-ring: 181 61% 26%;
 
     /* Chart */
     --chart-1: 181 61% 26%;
@@ -95,6 +118,19 @@
     /* Accent Blue */
     --accent-blue: 202 37% 50%;
     --accent-blue-dark: 201 43% 40%;
+    --accent-blue-light: 203 60% 30%;
+    --accent-blue-foreground: 0 0% 100%;
+
+    /* Client Status */
+    --status-ativo: 169 52% 46%;
+    --status-ativo-bg: 169 30% 15%;
+    --status-ativo-foreground: 0 0% 100%;
+    --status-inativo: 218 11% 55%;
+    --status-inativo-bg: 220 14% 16%;
+    --status-inativo-foreground: 0 0% 100%;
+    --status-prospecto: 160 25% 55%;
+    --status-prospecto-bg: 150 20% 16%;
+    --status-prospecto-foreground: 0 0% 100%;
 
     /* Borders */
     --border: 25 10% 18%;
@@ -115,6 +151,16 @@
     --info-foreground: 0 0% 100%;
     --cancelled: 15 89% 53%;
     --cancelled-foreground: 0 0% 100%;
+
+    /* Sidebar — matches main background for seamless layout */
+    --sidebar-background: 28 15% 6%;
+    --sidebar-foreground: 27 8% 55%;
+    --sidebar-primary: 181 61% 36%;
+    --sidebar-primary-foreground: 178 100% 94%;
+    --sidebar-accent: 178 40% 15%;
+    --sidebar-accent-foreground: 181 61% 70%;
+    --sidebar-border: 25 10% 18%;
+    --sidebar-ring: 181 61% 36%;
 
     /* Chart */
     --chart-1: 181 61% 36%;

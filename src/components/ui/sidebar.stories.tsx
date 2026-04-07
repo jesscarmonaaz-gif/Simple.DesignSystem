@@ -203,6 +203,49 @@ export const WithDisabledItem: Story = {
   },
 };
 
+export const WithSubgroups: Story = {
+  args: {
+    header: <Header />,
+    groups: [
+      {
+        items: [
+          { label: "Home", icon: <House className="h-4 w-4" />, href: "#", active: true },
+        ],
+      },
+      {
+        label: "Workspace",
+        items: [
+          {
+            label: "Projects",
+            icon: <Briefcase className="h-4 w-4" />,
+            defaultOpen: true,
+            items: [
+              { label: "Active", icon: <FolderSimple className="h-4 w-4" />, href: "#" },
+              { label: "Archived", icon: <FolderSimple className="h-4 w-4" />, href: "#" },
+            ],
+          },
+          {
+            label: "Calendar",
+            icon: <CalendarBlank className="h-4 w-4" />,
+            items: [
+              { label: "Today", icon: <CalendarBlank className="h-4 w-4" />, href: "#" },
+              { label: "Week", icon: <CalendarBlank className="h-4 w-4" />, href: "#" },
+            ],
+          },
+        ],
+      },
+      {
+        label: "Manage",
+        items: [
+          { label: "Team", icon: <UsersThree className="h-4 w-4" />, href: "#" },
+          { label: "Integrations", icon: <PlugsConnected className="h-4 w-4" />, href: "#" },
+        ],
+      },
+    ],
+    footer: <Footer />,
+  },
+};
+
 export const NoIcons: Story = {
   args: {
     header: <Header />,

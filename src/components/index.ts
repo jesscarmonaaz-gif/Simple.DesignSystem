@@ -96,6 +96,11 @@ export {
   type SidebarItem,
 } from "./ui/sidebar";
 export {
+  SidebarMenuItem,
+  type SidebarMenuItemProps,
+} from "./ui/sidebar-menu-item";
+export { UserAvatar, type UserAvatarProps } from "./ui/user-avatar";
+export {
   Toaster,
   toast,
   dismissToast,

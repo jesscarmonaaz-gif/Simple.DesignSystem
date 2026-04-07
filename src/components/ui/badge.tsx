@@ -16,9 +16,14 @@ const badgeVariants = cva(
         warning: "",
         info: "",
         cancelled: "",
+        accent: "",
       },
       filled: {
         true: "",
+        false: "",
+      },
+      borderless: {
+        true: "border-transparent",
         false: "",
       },
     },
@@ -53,6 +58,11 @@ const badgeVariants = cva(
         variant: "destructive",
         filled: false,
         className: "border-destructive/40 bg-destructive/10 text-destructive",
+      },
+      {
+        variant: "accent",
+        filled: false,
+        className: "border-accent-blue/40 bg-accent-blue/10 text-accent-blue",
       },
       {
         variant: "secondary",
@@ -103,6 +113,12 @@ const badgeVariants = cva(
           "border-destructive bg-destructive text-destructive-foreground",
       },
       {
+        variant: "accent",
+        filled: true,
+        className:
+          "border-accent-blue bg-accent-blue text-accent-blue-foreground",
+      },
+      {
         variant: "secondary",
         filled: true,
         className:
@@ -117,6 +133,7 @@ const badgeVariants = cva(
     defaultVariants: {
       variant: "default",
       filled: false,
+      borderless: false,
     },
   },
 );
@@ -129,6 +146,7 @@ const indicatorOutlinedMap: Record<string, string> = {
   info: "bg-info/30",
   cancelled: "bg-cancelled/30",
   destructive: "bg-destructive/30",
+  accent: "bg-accent-blue/30",
   secondary: "bg-muted-foreground/30",
   outline: "bg-foreground/15",
 };
@@ -143,13 +161,14 @@ function Badge({
   className,
   variant = "default",
   filled = false,
+  borderless = false,
   indicator = true,
   children,
   ...props
 }: BadgeProps) {
   return (
     <div
-      className={cn(badgeVariants({ variant, filled }), className)}
+      className={cn(badgeVariants({ variant, filled, borderless }), className)}
       {...props}
     >
       {indicator && (
