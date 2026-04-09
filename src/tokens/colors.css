@@ -25,8 +25,8 @@
     /* Text */
     --foreground-body: 27 10% 37%;
 
-    /* Accent */
-    --accent: 24 33% 85%;
+    /* Accent (unified with accent-earth-light) */
+    --accent: 24 63% 88%;
     --accent-foreground: 28 15% 19%;
 
     /* Accent Blue */
@@ -34,6 +34,18 @@
     --accent-blue-dark: 201 43% 31%;
     --accent-blue-light: 203 96% 85%;
     --accent-blue-foreground: 0 0% 100%;
+
+    /* Accent Green */
+    --accent-green: 139 26% 39%;
+    --accent-green-dark: 137 30% 32%;
+    --accent-green-light: 133 49% 82%;
+    --accent-green-foreground: 0 0% 100%;
+
+    /* Accent Earth */
+    --accent-earth: 35 67% 38%;
+    --accent-earth-dark: 35 70% 32%;
+    --accent-earth-light: 24 63% 88%;
+    --accent-earth-foreground: 0 0% 100%;
 
     /* Borders */
     --border: 25 60% 93%;
@@ -111,8 +123,8 @@
     /* Text */
     --foreground-body: 27 10% 70%;
 
-    /* Accent */
-    --accent: 24 10% 15%;
+    /* Accent (unified with accent-earth-light) */
+    --accent: 24 30% 22%;
     --accent-foreground: 18 100% 98%;
 
     /* Accent Blue */
@@ -120,6 +132,18 @@
     --accent-blue-dark: 201 43% 40%;
     --accent-blue-light: 203 60% 30%;
     --accent-blue-foreground: 0 0% 100%;
+
+    /* Accent Green */
+    --accent-green: 139 26% 50%;
+    --accent-green-dark: 137 30% 42%;
+    --accent-green-light: 133 30% 25%;
+    --accent-green-foreground: 0 0% 100%;
+
+    /* Accent Earth */
+    --accent-earth: 35 67% 50%;
+    --accent-earth-dark: 35 70% 42%;
+    --accent-earth-light: 24 30% 22%;
+    --accent-earth-foreground: 0 0% 100%;
 
     /* Client Status */
     --status-ativo: 169 52% 46%;

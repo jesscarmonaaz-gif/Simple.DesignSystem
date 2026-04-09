@@ -46,6 +46,18 @@ export const simplePreset: Partial<Config> = {
             light: "hsl(var(--accent-blue-light))",
             foreground: "hsl(var(--accent-blue-foreground))",
           },
+          green: {
+            DEFAULT: "hsl(var(--accent-green))",
+            dark: "hsl(var(--accent-green-dark))",
+            light: "hsl(var(--accent-green-light))",
+            foreground: "hsl(var(--accent-green-foreground))",
+          },
+          earth: {
+            DEFAULT: "hsl(var(--accent-earth))",
+            dark: "hsl(var(--accent-earth-dark))",
+            light: "hsl(var(--accent-earth-light))",
+            foreground: "hsl(var(--accent-earth-foreground))",
+          },
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
