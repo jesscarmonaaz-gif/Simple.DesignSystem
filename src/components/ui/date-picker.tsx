@@ -11,6 +11,10 @@ const MONTHS = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December",
 ];
+const MONTHS_SHORT = [
+  "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+  "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+];
 
 function formatDate(date: Date): string {
   return new Intl.DateTimeFormat("en-US", {
@@ -53,6 +57,8 @@ function buildGrid(year: number, month: number): Date[] {
 }
 
 /* ── Types ── */
+
+type CalendarView = "days" | "months" | "years";
 
 export interface DatePickerProps {
   /** Label displayed above the input */
@@ -114,11 +120,15 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
     const [open, setOpen] = React.useState(false);
 
     /* ── Calendar view state ── */
+    const [view, setView] = React.useState<CalendarView>("days");
     const [viewYear, setViewYear] = React.useState(
       selectedDate?.getFullYear() ?? today.getFullYear(),
     );
     const [viewMonth, setViewMonth] = React.useState(
       selectedDate?.getMonth() ?? today.getMonth(),
+    );
+    const [yearRangeStart, setYearRangeStart] = React.useState(
+      Math.floor((selectedDate?.getFullYear() ?? today.getFullYear()) / 12) * 12,
     );
 
     /* Sync view to value when controlled value changes externally */
@@ -135,6 +145,8 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
         const base = selectedDate ?? today;
         setViewYear(base.getFullYear());
         setViewMonth(base.getMonth());
+        setYearRangeStart(Math.floor(base.getFullYear() / 12) * 12);
+        setView("days");
       }
       setOpen(next);
     };
@@ -188,6 +200,47 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
       state === "default" && "border-input focus-visible:border-ring",
     );
 
+    /* ── Header text click → toggle view ── */
+    const handleHeaderClick = () => {
+      if (view === "days") {
+        setView("months");
+      } else if (view === "months") {
+        setYearRangeStart(Math.floor(viewYear / 12) * 12);
+        setView("years");
+      } else {
+        setView("days");
+      }
+    };
+
+    /* ── Prev / Next based on view ── */
+    const handlePrev = () => {
+      if (view === "days") {
+        prevMonth();
+      } else if (view === "months") {
+        setViewYear((y) => y - 1);
+      } else {
+        setYearRangeStart((s) => s - 12);
+      }
+    };
+
+    const handleNext = () => {
+      if (view === "days") {
+        nextMonth();
+      } else if (view === "months") {
+        setViewYear((y) => y + 1);
+      } else {
+        setYearRangeStart((s) => s + 12);
+      }
+    };
+
+    /* ── Header label ── */
+    const headerLabel =
+      view === "days"
+        ? `${MONTHS[viewMonth]} ${viewYear}`
+        : view === "months"
+          ? `${viewYear}`
+          : `${yearRangeStart} – ${yearRangeStart + 11}`;
+
     return (
       <div className="flex flex-col gap-1.5">
         {/* Label */}
@@ -237,81 +290,159 @@ const DatePicker = React.forwardRef<HTMLButtonElement, DatePickerProps>(
               sideOffset={4}
               className="z-50 w-72 rounded-md border border-border bg-white p-3 shadow-lg animate-in fade-in-0 zoom-in-95"
             >
-              {/* Month / year navigation */}
+              {/* Navigation header */}
               <div className="flex items-center justify-between mb-3">
                 <button
                   type="button"
-                  onClick={prevMonth}
-                  aria-label="Previous month"
+                  onClick={handlePrev}
+                  aria-label="Previous"
                   className="flex h-7 w-7 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                 >
                   <CaretLeft className="h-4 w-4" />
                 </button>
-                <span className="text-sm font-semibold select-none">
-                  {MONTHS[viewMonth]} {viewYear}
-                </span>
                 <button
                   type="button"
-                  onClick={nextMonth}
-                  aria-label="Next month"
+                  onClick={handleHeaderClick}
+                  className="text-sm font-semibold select-none hover:text-primary transition-colors px-2 py-0.5 rounded-md hover:bg-accent"
+                >
+                  {headerLabel}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next"
                   className="flex h-7 w-7 items-center justify-center rounded-md text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
                 >
                   <CaretRight className="h-4 w-4" />
                 </button>
               </div>
 
-              {/* Weekday headers */}
-              <div className="grid grid-cols-7 mb-1">
-                {WEEKDAYS.map((d) => (
-                  <div
-                    key={d}
-                    className="flex h-8 items-center justify-center text-xs font-medium text-muted-foreground select-none"
-                  >
-                    {d}
+              {/* ── Days view ── */}
+              {view === "days" && (
+                <>
+                  {/* Weekday headers */}
+                  <div className="grid grid-cols-7 mb-1">
+                    {WEEKDAYS.map((d) => (
+                      <div
+                        key={d}
+                        className="flex h-8 items-center justify-center text-xs font-medium text-muted-foreground select-none"
+                      >
+                        {d}
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
 
-              {/* Day grid */}
-              <div className="grid grid-cols-7 gap-y-0.5">
-                {grid.map((day, i) => {
-                  const isCurrentMonth = day.getMonth() === viewMonth;
-                  const isSelected = selectedDate
-                    ? isSameDay(day, selectedDate)
-                    : false;
-                  const isToday = isSameDay(day, today);
-                  const dayDisabled = isDayDisabled(day);
+                  {/* Day grid */}
+                  <div className="grid grid-cols-7 gap-y-0.5">
+                    {grid.map((day, i) => {
+                      const isCurrentMonth = day.getMonth() === viewMonth;
+                      const isSelected = selectedDate
+                        ? isSameDay(day, selectedDate)
+                        : false;
+                      const isToday = isSameDay(day, today);
+                      const dayDisabled = isDayDisabled(day);
 
-                  return (
-                    <button
-                      key={i}
-                      type="button"
-                      disabled={dayDisabled}
-                      onClick={() => !dayDisabled && handleSelect(day)}
-                      className={cn(
-                        "flex h-8 w-full items-center justify-center rounded-md text-sm transition-colors select-none",
-                        // Days outside current month
-                        !isCurrentMonth && "text-muted-foreground/35",
-                        // Normal hoverable day
-                        isCurrentMonth &&
-                          !isSelected &&
-                          !dayDisabled &&
+                      return (
+                        <button
+                          key={i}
+                          type="button"
+                          disabled={dayDisabled}
+                          onClick={() => !dayDisabled && handleSelect(day)}
+                          className={cn(
+                            "flex h-8 w-full items-center justify-center rounded-md text-sm transition-colors select-none",
+                            // Days outside current month
+                            !isCurrentMonth && "text-muted-foreground/35",
+                            // Normal hoverable day
+                            isCurrentMonth &&
+                              !isSelected &&
+                              !dayDisabled &&
+                              "hover:bg-accent",
+                            // Today indicator
+                            isToday &&
+                              !isSelected &&
+                              "font-semibold ring-1 ring-inset ring-primary/50",
+                            // Selected
+                            isSelected && "bg-primary text-white font-semibold",
+                            // Disabled
+                            dayDisabled && "cursor-not-allowed opacity-30",
+                          )}
+                        >
+                          {day.getDate()}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+
+              {/* ── Months view ── */}
+              {view === "months" && (
+                <div className="grid grid-cols-3 gap-2">
+                  {MONTHS_SHORT.map((m, idx) => {
+                    const isCurrentMonth =
+                      idx === today.getMonth() && viewYear === today.getFullYear();
+                    const isSelected =
+                      selectedDate &&
+                      idx === selectedDate.getMonth() &&
+                      viewYear === selectedDate.getFullYear();
+
+                    return (
+                      <button
+                        key={m}
+                        type="button"
+                        onClick={() => {
+                          setViewMonth(idx);
+                          setView("days");
+                        }}
+                        className={cn(
+                          "flex h-9 items-center justify-center rounded-md text-sm transition-colors select-none",
                           "hover:bg-accent",
-                        // Today indicator
-                        isToday &&
-                          !isSelected &&
-                          "font-semibold ring-1 ring-inset ring-primary/50",
-                        // Selected
-                        isSelected && "bg-primary text-white font-semibold",
-                        // Disabled
-                        dayDisabled && "cursor-not-allowed opacity-30",
-                      )}
-                    >
-                      {day.getDate()}
-                    </button>
-                  );
-                })}
-              </div>
+                          isCurrentMonth &&
+                            !isSelected &&
+                            "font-semibold ring-1 ring-inset ring-primary/50",
+                          isSelected && "bg-primary text-white font-semibold",
+                        )}
+                      >
+                        {m}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
+              {/* ── Years view ── */}
+              {view === "years" && (
+                <div className="grid grid-cols-3 gap-2">
+                  {Array.from({ length: 12 }, (_, i) => yearRangeStart + i).map(
+                    (yr) => {
+                      const isCurrentYear = yr === today.getFullYear();
+                      const isSelected =
+                        selectedDate && yr === selectedDate.getFullYear();
+
+                      return (
+                        <button
+                          key={yr}
+                          type="button"
+                          onClick={() => {
+                            setViewYear(yr);
+                            setView("months");
+                          }}
+                          className={cn(
+                            "flex h-9 items-center justify-center rounded-md text-sm transition-colors select-none",
+                            "hover:bg-accent",
+                            isCurrentYear &&
+                              !isSelected &&
+                              "font-semibold ring-1 ring-inset ring-primary/50",
+                            isSelected && "bg-primary text-white font-semibold",
+                          )}
+                        >
+                          {yr}
+                        </button>
+                      );
+                    },
+                  )}
+                </div>
+              )}
             </PopoverPrimitive.Content>
           </PopoverPrimitive.Portal>
         </PopoverPrimitive.Root>
