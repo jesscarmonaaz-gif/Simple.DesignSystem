@@ -32,19 +32,22 @@
     /* Accent Blue */
     --accent-blue: 202 37% 36%;
     --accent-blue-dark: 201 43% 31%;
-    --accent-blue-light: 203 96% 85%;
+    --accent-blue-light: 203 50% 80%;
+    --accent-blue-fg: 200 45% 91%;
     --accent-blue-foreground: 0 0% 100%;
 
     /* Accent Green */
     --accent-green: 139 26% 39%;
     --accent-green-dark: 137 30% 32%;
-    --accent-green-light: 133 49% 82%;
+    --accent-green-light: 134 38% 79%;
+    --accent-green-fg: 155 36% 90%;
     --accent-green-foreground: 0 0% 100%;
 
     /* Accent Earth */
     --accent-earth: 35 67% 38%;
     --accent-earth-dark: 35 70% 32%;
-    --accent-earth-light: 24 63% 88%;
+    --accent-earth-light: 35 66% 79%;
+    --accent-earth-fg: 33 71% 92%;
     --accent-earth-foreground: 0 0% 100%;
 
     /* Borders */
@@ -74,14 +77,15 @@
 
     /* Client Status (from simplecare.pen) */
     --status-ativo: 169 52% 36%;
-    --status-ativo-bg: 156 38% 93%;
+    --status-ativo-bg: 155 36% 90%;
     --status-ativo-foreground: 0 0% 100%;
     --status-inativo: 218 11% 65%;
-    --status-inativo-bg: 220 14% 96%;
+    --status-inativo-bg: 33 71% 92%;
     --status-inativo-foreground: 0 0% 100%;
     --status-prospecto: 160 21% 45%;
-    --status-prospecto-bg: 150 31% 94%;
+    --status-prospecto-bg: 200 45% 91%;
     --status-prospecto-foreground: 0 0% 100%;
+    --status-pausado-bg: 25 61% 93%;
 
     /* Sidebar — matches main background for seamless layout */
     --sidebar-background: 18 100% 98%;
@@ -134,31 +138,35 @@
     /* Accent Blue */
     --accent-blue: 202 37% 50%;
     --accent-blue-dark: 201 43% 40%;
-    --accent-blue-light: 203 60% 30%;
+    --accent-blue-light: 203 40% 30%;
+    --accent-blue-fg: 200 35% 18%;
     --accent-blue-foreground: 0 0% 100%;
 
     /* Accent Green */
     --accent-green: 139 26% 50%;
     --accent-green-dark: 137 30% 42%;
-    --accent-green-light: 133 30% 25%;
+    --accent-green-light: 134 30% 25%;
+    --accent-green-fg: 155 28% 18%;
     --accent-green-foreground: 0 0% 100%;
 
     /* Accent Earth */
     --accent-earth: 35 67% 50%;
     --accent-earth-dark: 35 70% 42%;
-    --accent-earth-light: 24 30% 22%;
+    --accent-earth-light: 35 40% 25%;
+    --accent-earth-fg: 33 40% 18%;
     --accent-earth-foreground: 0 0% 100%;
 
     /* Client Status */
     --status-ativo: 169 52% 46%;
-    --status-ativo-bg: 169 30% 15%;
+    --status-ativo-bg: 155 28% 18%;
     --status-ativo-foreground: 0 0% 100%;
     --status-inativo: 218 11% 55%;
-    --status-inativo-bg: 220 14% 16%;
+    --status-inativo-bg: 33 40% 18%;
     --status-inativo-foreground: 0 0% 100%;
     --status-prospecto: 160 25% 55%;
-    --status-prospecto-bg: 150 20% 16%;
+    --status-prospecto-bg: 200 35% 18%;
     --status-prospecto-foreground: 0 0% 100%;
+    --status-pausado-bg: 25 35% 18%;
 
     /* Borders */
     --border: 25 10% 18%;

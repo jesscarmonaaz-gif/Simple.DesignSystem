@@ -45,18 +45,21 @@ export const simplePreset: Partial<Config> = {
             DEFAULT: "hsl(var(--accent-blue))",
             dark: "hsl(var(--accent-blue-dark))",
             light: "hsl(var(--accent-blue-light))",
+            fg: "hsl(var(--accent-blue-fg))",
             foreground: "hsl(var(--accent-blue-foreground))",
           },
           green: {
             DEFAULT: "hsl(var(--accent-green))",
             dark: "hsl(var(--accent-green-dark))",
             light: "hsl(var(--accent-green-light))",
+            fg: "hsl(var(--accent-green-fg))",
             foreground: "hsl(var(--accent-green-foreground))",
           },
           earth: {
             DEFAULT: "hsl(var(--accent-earth))",
             dark: "hsl(var(--accent-earth-dark))",
             light: "hsl(var(--accent-earth-light))",
+            fg: "hsl(var(--accent-earth-fg))",
             foreground: "hsl(var(--accent-earth-foreground))",
           },
         },
@@ -101,6 +104,9 @@ export const simplePreset: Partial<Config> = {
           DEFAULT: "hsl(var(--status-prospecto))",
           bg: "hsl(var(--status-prospecto-bg))",
           foreground: "hsl(var(--status-prospecto-foreground))",
+        },
+        "status-pausado": {
+          bg: "hsl(var(--status-pausado-bg))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
